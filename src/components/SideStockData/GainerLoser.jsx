@@ -55,13 +55,21 @@ const Table = ({
               </td>
               {/* Data cell for Change */}
               <td
-                className={`px-4 py-2 whitespace-nowrap font-medium text-${color}-500`}
+                className={
+                  color === "green"
+                    ? "px-4 py-2 whitespace-nowrap font-medium text-green-500"
+                    : "px-4 py-2 whitespace-nowrap font-medium text-red-500"
+                }
               >
                 {change_amount}
               </td>
               {/* Data cell for % Change */}
               <td
-                className={`px-4 py-2 whitespace-nowrap font-medium text-${color}-500`}
+                className={
+                  color === "green"
+                    ? "px-4 py-2 whitespace-nowrap font-medium text-green-500"
+                    : "px-4 py-2 whitespace-nowrap font-medium text-red-500"
+                }
               >
                 {change_percentage}
               </td>
