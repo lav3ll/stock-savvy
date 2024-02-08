@@ -3,8 +3,8 @@ import GainerLoser from "./GainerLoser"; // Importing the GainerLoser component
 import stocks from "../data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 
 // Extracting gainer and loser data from the imported JSON file
-const gainersData = stocks.top_gainers;
-const losersData = stocks.top_losers; // Fixed the variable name
+const gainersData = stocks.top_gainers.slice(0, 5);
+const losersData = stocks.top_losers.slice(0, 5);
 
 // Functional component for rendering the container of gainers and losers
 const GLContainer = () => {
