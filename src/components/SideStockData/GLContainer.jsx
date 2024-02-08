@@ -9,8 +9,8 @@ const losersData = stocks.top_losers.slice(0, 5);
 // Functional component for rendering the container of gainers and losers
 const GLContainer = () => {
   return (
-    <div className="flex justify-between">
-      <div className="w-1/2">
+    <div className="grid grid-cols-1 gap-y-4">
+      <div>
         <h3 className="text-xl font-bold mb-2 text-left ml-3">Gainers</h3>
         {/* Rendering GainerLoser components for each gainer */}
         {gainersData.map((gainer, idx) => (
@@ -27,7 +27,7 @@ const GLContainer = () => {
         ))}
       </div>
 
-      <div className="w-1/2">
+      <div>
         <h3 className="text-xl font-bold mb-2 text-left ml-3">Losers</h3>
         {/* Rendering GainerLoser components for each loser */}
         {losersData.map((loser, idx) => (
