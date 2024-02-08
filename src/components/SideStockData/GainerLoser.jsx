@@ -1,6 +1,6 @@
 import React from "react";
 
-const GainerLoser = ({
+const Table = ({
   ticker,
   price,
   change_amount,
@@ -8,27 +8,52 @@ const GainerLoser = ({
   volume,
   name,
   idx,
+  color,
 }) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Last Price</th>
-          <th>Change</th>
-          <th>% Change</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr key={idx}>
-          <td>{ticker}</td>
-          <td>{price}</td>
-          <td>{change_amount}</td>
-          <td>{change_percentage}</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <div className="overflow-x-auto">
+        <table className="table-auto">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Symbol
+              </th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Last Price
+              </th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Change
+              </th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                % Change
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            <tr key={idx}>
+              <td className="px-4 py-2 whitespace-nowrap font-bold text-blue-500">
+                {ticker}
+              </td>
+              <td className="px-4 py-2 whitespace-nowrap font-medium">
+                {price}
+              </td>
+              <td
+                className={`px-4 py-2 whitespace-nowrap font-medium text-${color}-500`}
+              >
+                {change_amount}
+              </td>
+              <td
+                className={`px-4 py-2 whitespace-nowrap font-medium text-${color}-500`}
+              >
+                {change_percentage}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 
-export default GainerLoser;
+export default Table;

@@ -10,6 +10,7 @@ const losersData = stocks.top_gainers; // There seems to be a mistake here. It s
 const GLContainer = () => {
   return (
     <div>
+      <h3>Gainers</h3>
       {/* Rendering GainerLoser components for each gainer */}
       {gainersData.map((gainer, idx) => (
         <GainerLoser
@@ -20,8 +21,11 @@ const GLContainer = () => {
           change_amount={gainer.change_amount}
           change_percentage={gainer.change_percentage}
           volume={gainer.volume}
+          color="green"
         />
       ))}
+
+      <h3>Losers</h3>
       {/* Rendering GainerLoser components for each loser */}
       {losersData.map((loser, idx) => (
         <GainerLoser
@@ -32,6 +36,7 @@ const GLContainer = () => {
           change_amount={loser.change_amount}
           change_percentage={loser.change_percentage}
           volume={loser.volume}
+          color="red"
         />
       ))}
     </div>
