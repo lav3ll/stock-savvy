@@ -6,9 +6,8 @@ import GLContainer from "./components/SideStockData/GLContainer";
 function App() {
   return (
     <>
-    <h1> Testing Feature Branch</h1>
-      {/* <StocksLanding />
-      <GLContainer /> */}
+      <StocksLanding />
+      <GLContainer />
     </>
   );
 }
