@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "../GlobalComponents/Modal";
 
 const StockData = ({
   ticker,
@@ -11,10 +12,17 @@ const StockData = ({
   const formattedChangePercentage = parseFloat(change_percentage);
   const formattedChangeAmount = parseFloat(change_amount);
 
+  const handleClick = () => {
+    alert("click");
+    return <Modal />;
+  };
+
   return (
     <div>
       {/* Display the ticker symbol */}
-      <h1 className="text-lg font-bold">{ticker}</h1>
+      <h1 className="text-lg font-bold" onClick={handleClick}>
+        {ticker}
+      </h1>
       {/* Display the price */}
       <p className="text-gray-600">Price: {price}</p>
       {/* Apply text color class based on whether change amount is positive or negative */}
