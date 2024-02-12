@@ -47,16 +47,16 @@ const BarChart = ({ stockData }) => {
         axisBottom={{
           tickSize: 5,
           tickPadding: 5,
-          tickRotation: -45,
-          legend: "Value",
+          tickRotation: -23,
+          legend: "", // Set legend to empty string
           legendPosition: "middle",
           legendOffset: 36,
         }}
         axisLeft={{
-          tickSize: 5,
-          tickPadding: 5,
+          tickSize: 1,
+          tickPadding: 2,
           tickRotation: 0,
-          legend: "Metrics",
+          legend: "", // Set legend to empty string
           legendPosition: "middle",
           legendOffset: -40,
         }}
@@ -90,7 +90,6 @@ const BarChart = ({ stockData }) => {
         animate={true}
         motionStiffness={90}
         motionDamping={15}
-        // theme={NivoTheme}
       />
     </div>
   );

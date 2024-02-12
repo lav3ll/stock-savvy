@@ -43,8 +43,10 @@ const Modal = ({ isOpen, onClose, data, modalBtnTxt }) => {
                   {data.Industry}
                 </p>
               </div>
-              <BarChart stockData={data} />
-
+              {/* BarChart container */}
+              <div className="flex justify-center">
+                <BarChart stockData={data} />
+              </div>
               {/* Modal footer */}
               <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"></div>
             </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { StocksLanding } from "./components/TopPageStockData/StocksLanding";
+import { StocksCarousel } from "./components/TopPageStockData/StocksCarousel";
 import GLContainer from "./components/SideStockData/GLContainer";
 import Dashboard from "./components/dashboard";
 import Modal from "./components/GlobalComponents/Modal";
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Dashboard />
-      <StocksLanding />
+      <StocksCarousel />
       <GLContainer />
       <Modal isOpen={isModalOpen} onClose={toggleModal} />
     </>
