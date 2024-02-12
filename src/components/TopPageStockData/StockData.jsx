@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../GlobalComponents/Modal";
 import modalData from "../data/modalTestData.json";
+import "./StocksCarousel.scss";
 
 const StockData = ({
   ticker,
@@ -22,7 +23,7 @@ const StockData = ({
   };
 
   return (
-    <div>
+    <div className="">
       {/* Display the ticker symbol and make it clickable to open the modal */}
       <h1 className="text-lg font-bold cursor-pointer" onClick={toggleModal}>
         {ticker}

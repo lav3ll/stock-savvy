@@ -3,7 +3,7 @@ import Card from "./card";
 import Search from "./search";
 import StockData from "./TopPageStockData/StockData"; // Importing the StockData component
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
-import { StocksLanding } from "./TopPageStockData/StocksCarousel";
+import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
 
 // // Extracting the most actively traded stocks from the imported JSON data
 // const mostActivelyTraded = stocks.most_actively_traded;
@@ -39,7 +39,7 @@ const Dashboard = () => {
         <Search />
       </div>
       <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
-        <StocksLanding />
+        <StocksCarousel />
       </div>
       <div className="md:col-span-2 row-span-4">
         <Card>Chart</Card>

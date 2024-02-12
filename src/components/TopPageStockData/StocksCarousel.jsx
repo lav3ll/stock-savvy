@@ -1,18 +1,31 @@
-import React from "react";
-import StockData from "./StockData"; // Importing the StockData component
-import stocks from "../data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
+import React, { useRef, useEffect } from "react";
+import StockData from "./StockData";
+import stocks from "../data/gainers-losers-activelydata.json";
+import "./StocksCarousel.scss";
 
-// Extracting the most actively traded stocks from the imported JSON data
-const mostActivelyTraded = stocks.most_actively_traded;
+const StocksCarousel = () => {
+  const carouselRef = useRef(null);
 
-// Functional component for rendering the stocks landing page
-export const StocksLanding = () => {
+  // Function to scroll the carousel
+  const scrollCarousel = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft += 1; // Adjust scroll speed as needed
+    }
+  };
+
+  // Automatically scroll the carousel
+  useEffect(() => {
+    const intervalId = setInterval(scrollCarousel, 50); // Adjust interval duration as needed
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
-    <div>
-      {/* Container div with flex layout */}
-      <div className="flex justify-between items-center border-b border-gray-200 py-2">
-        {/* Mapping over the most actively traded stocks and rendering StockData component for each */}
-        {mostActivelyTraded.map((stock, idx) => (
+    <div className="overflow-hidden carousel-container">
+      <div
+        ref={carouselRef}
+        className="flex gap-4 py-2" // Adjust gap and other styles as needed
+      >
+        {stocks.most_actively_traded.map((stock, idx) => (
           <StockData
             key={idx}
             ticker={stock.ticker}
@@ -26,3 +39,5 @@ export const StocksLanding = () => {
     </div>
   );
 };
+
+export default StocksCarousel;
