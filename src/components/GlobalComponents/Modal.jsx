@@ -1,4 +1,5 @@
 import React from "react";
+import LineChart from "./LineChart";
 
 const Modal = ({ isOpen, onClose, data, modalBtnTxt }) => {
   return (
@@ -43,11 +44,14 @@ const Modal = ({ isOpen, onClose, data, modalBtnTxt }) => {
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                   {data.Industry}
                 </p>
+                <p></p>
               </div>
+
               {/* Modal footer */}
               <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"></div>
             </div>
           </div>
+          <LineChart stockData={data} />
         </div>
       )}
     </>
