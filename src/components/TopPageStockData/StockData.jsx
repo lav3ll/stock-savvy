@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../GlobalComponents/Modal";
+import modalData from "../data/modalTestData.json";
 
 const StockData = ({
   ticker,
@@ -27,7 +28,9 @@ const StockData = ({
         {ticker}
       </h1>
       {/* Modal */}
-      {isModalOpen && <Modal isOpen={isModalOpen} onClose={toggleModal} />}
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={toggleModal} data={modalData} />
+      )}
       {/* Display the price */}
       <p className="text-gray-600">Price: {price}</p>
       {/* Apply text color class based on whether change amount is positive or negative */}
