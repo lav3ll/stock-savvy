@@ -1,4 +1,5 @@
 import { ResponsiveBar } from "@nivo/bar";
+import NivoTheme from "../data/NivoTheme.json";
 
 const BarChart = ({ stockData }) => {
   const data = [
@@ -26,6 +27,7 @@ const BarChart = ({ stockData }) => {
 
   return (
     <div style={{ width: "600px", height: "400px" }}>
+      {/* Adjust width and height */}
       <ResponsiveBar
         data={data}
         keys={[
@@ -88,6 +90,7 @@ const BarChart = ({ stockData }) => {
         animate={true}
         motionStiffness={90}
         motionDamping={15}
+        // theme={NivoTheme}
       />
     </div>
   );
