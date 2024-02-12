@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "../GlobalComponents/Modal";
 
 const StockData = ({
@@ -12,17 +12,22 @@ const StockData = ({
   const formattedChangePercentage = parseFloat(change_percentage);
   const formattedChangeAmount = parseFloat(change_amount);
 
-  const handleClick = () => {
-    alert("click");
-    return <Modal />;
+  // State to manage the modal's visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to toggle the modal's visibility
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
     <div>
-      {/* Display the ticker symbol */}
-      <h1 className="text-lg font-bold" onClick={handleClick}>
+      {/* Display the ticker symbol and make it clickable to open the modal */}
+      <h1 className="text-lg font-bold cursor-pointer" onClick={toggleModal}>
         {ticker}
       </h1>
+      {/* Modal */}
+      {isModalOpen && <Modal isOpen={isModalOpen} onClose={toggleModal} />}
       {/* Display the price */}
       <p className="text-gray-600">Price: {price}</p>
       {/* Apply text color class based on whether change amount is positive or negative */}
