@@ -6,6 +6,7 @@ import stocks from "./data/gainers-losers-activelydata.json"; // Importing the s
 import { StocksLanding } from "./TopPageStockData/StocksLanding";
 import NewsItems from "./News/NewsItems";
 
+import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
 
 // // Extracting the most actively traded stocks from the imported JSON data
 // const mostActivelyTraded = stocks.most_actively_traded;
@@ -32,11 +33,6 @@ import NewsItems from "./News/NewsItems";
 //   );
 // };
 
-
-
-
-
-
 const Dashboard = () => {
    
     const [news, setNews] = useState([]);
@@ -54,7 +50,7 @@ const Dashboard = () => {
             {/* <Search/> I put the search bar into the NewsItem component */} 
         </div>
         <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
-        <StocksLanding />
+        <StocksCarousel />
         </div>
         <div className="md:col-span-2 row-span-4">
             <Card>Chart</Card>
@@ -78,9 +74,7 @@ const Dashboard = () => {
             </Card>
         </div>
     </div>
-)
+  );
 };
 
-export default Dashboard; 
-
-
+export default Dashboard;
