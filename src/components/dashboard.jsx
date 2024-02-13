@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./card";
-import Search from "./search";
+// import Search from "./Search";
 import StockData from "./TopPageStockData/StockData"; // Importing the StockData component
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 import { StocksLanding } from "./TopPageStockData/StocksLanding";
+import NewsItems from "./News/NewsItems";
 
 // // Extracting the most actively traded stocks from the imported JSON data
 // const mostActivelyTraded = stocks.most_actively_traded;
@@ -36,12 +37,18 @@ import { StocksLanding } from "./TopPageStockData/StocksLanding";
 
 
 const Dashboard = () => {
+    const [news, setNews] = useState([]);
+    useEffect(() => {
+        console.log(news);
+    }, [news]);
+
     return (
     <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8">
         <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
             <h1>Stock Savvy</h1>
             <br></br>
-            <Search/>
+            <NewsItems news={news} setNews={setNews} />
+            {/* <Search/> I put the search bar into the NewsItem component */} 
         </div>
         <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
         <StocksLanding />
@@ -53,7 +60,12 @@ const Dashboard = () => {
             <Card>Overview</Card>
         </div>
         <div className="row-span-2 xl:row-span-3">
-            <Card>Details</Card>
+            <Card> News </Card>
+            {news.map((article, idx) => <Card key={idx}> 
+            <img src={article.image} />
+                {article.title} 
+                <p>{article.description}</p>
+            </Card>)}
         </div>
     </div>
 )
