@@ -3,7 +3,6 @@ import Card from "./card";
 // import Search from "./Search";
 import StockData from "./TopPageStockData/StockData"; // Importing the StockData component
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
-import { StocksLanding } from "./TopPageStockData/StocksLanding";
 import NewsItems from "./News/NewsItems";
 
 import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
