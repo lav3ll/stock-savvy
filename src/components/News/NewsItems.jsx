@@ -11,7 +11,7 @@ function NewsItems(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.request(`https://gnews.io/api/v4/search?q=${search}&apikey=3bcaf7196b03271776f870904803a308`)
+        axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&apikey=3bcaf7196b03271776f870904803a308`)
         // axios.request(`https://api.currentsapi.services/v1/search?apiKey=1wMY1qB4mop_JYwMJ-ZSM8_-g6JXv5zIz2OW4PXryGNYehjc&keywords=${search}`)
             .then((response) => {
                 console.log(response.data.articles);
