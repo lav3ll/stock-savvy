@@ -38,12 +38,12 @@ import NewsItems from "./News/NewsItems";
 
 
 const Dashboard = () => {
-    // removed [] inside usesate()
+   
     const [news, setNews] = useState([]);
     useEffect(() => {
         console.log(news);
     }, [news]);
-    // }, [news]); 
+    
 
     return (
     <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8">
@@ -65,7 +65,6 @@ const Dashboard = () => {
         <div className="row-span-2 xl:row-span-3">
             <Card> 
                 <h3 className="font-semibold"> News </h3> 
-                {/* added TopHeadlines */}
                 {news.map((article, idx) => (
                     <a href={article.url} target="_blank" key={idx}>
                     <Card > 

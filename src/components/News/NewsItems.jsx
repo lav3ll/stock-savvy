@@ -18,6 +18,7 @@ function NewsItems(props) {
                     setImgSrc(response.data.image);
                     props.setNews(response.data.articles)
                     setSearch(""); 
+
             })
             .catch((error) => {
                 console.error('Error fetching news', error);

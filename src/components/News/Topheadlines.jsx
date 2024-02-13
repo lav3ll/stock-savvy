@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useState, useEffect} from 'react';
 
+// MAIN REPO TO PUSH CHANGES
 
 function TopsHeadlines () {    
     const [topHeadlines, setTopHeadlines] = useState([]);
 
     useEffect (() => {
-        axios.request('https://gnews.io/api/v4/top-headlines?lang=en&apikey=3bcaf7196b03271776f870904803a308')
+        axios.request('https://gnews.io/api/v4/top-headlines?category=business&lang=en&apikey=3bcaf7196b03271776f870904803a308')
         .then((response) => {
             setTopHeadlines(response.data.articles)
             console.log(response.data.articles);
@@ -28,10 +29,10 @@ function TopsHeadlines () {
             ))};
            
            </>
-        );
+        )
       
         
-    };
+    }
 
 export default TopsHeadlines;
 
