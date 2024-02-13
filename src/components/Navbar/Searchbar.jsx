@@ -1,7 +1,8 @@
 import React, {useState} from "react"
 import {FaSearch} from "react-icons/fa"
+import "./Searchbar.css"
 
-export default function Searchbar() {
+export default function Searchbar({ setResults }) {
 
     const [input, setInput] = useState("")
     
@@ -22,14 +23,18 @@ export default function Searchbar() {
         .then(function (response) {
             return response.json()
         })
-        .then(function (data) {
+        .then(function (data) { 
             console.log(data)
+            let dataArr = data.quotes
+            setResults(dataArr);
         })
     };
 
     const handleChange = (value) => {
         setInput(value)
-        getYahooData(value)
+        if (value) {
+            getYahooData(value)
+        }
     }
 
     return (
