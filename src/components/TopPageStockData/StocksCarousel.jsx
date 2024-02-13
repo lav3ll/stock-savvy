@@ -23,7 +23,7 @@ const StocksCarousel = () => {
     <div className="overflow-hidden carousel-container">
       <div
         ref={carouselRef}
-        className="flex gap-4 py-2" // Adjust gap and other styles as needed
+        className="flex gap-4 py-2 carousel-track" // Adjust gap and other styles as needed
       >
         {stocks.most_actively_traded.map((stock, idx) => (
           <StockData
