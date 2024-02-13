@@ -11,7 +11,7 @@ const StockData = ({
   volume,
 }) => {
   // Convert change percentage and change amount to numbers from strings
-  const formattedChangePercentage = parseFloat(change_percentage);
+  const formattedChangePercentage = parseFloat(change_percentage).toFixed(2);
   const formattedChangeAmount = parseFloat(change_amount);
 
   // State to manage the modal's visibility
@@ -23,7 +23,7 @@ const StockData = ({
   };
 
   return (
-    <div>
+    <div clacardssName="carousel-">
       {/* Display the ticker symbol and make it clickable to open the modal */}
       <h1 className="text-lg font-bold cursor-pointer" onClick={toggleModal}>
         {ticker}
@@ -33,7 +33,7 @@ const StockData = ({
         <Modal isOpen={isModalOpen} onClose={toggleModal} data={modalData} />
       )}
       {/* Display the price */}
-      <p className="text-gray-600">Price: {price}</p>
+      <p className="text-gray-600">${price}</p>
       {/* Apply text color class based on whether change amount is positive or negative */}
       <p
         className={`${
