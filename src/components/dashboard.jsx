@@ -60,12 +60,18 @@ const Dashboard = () => {
             <Card>Overview</Card>
         </div>
         <div className="row-span-2 xl:row-span-3">
-            <Card> News </Card>
+            <Card> 
+            <h3 className="font-semibold"> News </h3> 
             {news.map((article, idx) => <Card key={idx}> 
-            <img src={article.image} />
-                {article.title} 
-                <p>{article.description}</p>
-            </Card>)}
+                <img src={article.image} alt={article.title}/>
+                    <h5 className="font-semibold text-left hover:font-bold">
+                        {article.title} 
+                    </h5>
+                    <p className="text-left text-xs">
+                        {article.description}
+                    </p>
+                </Card>)}
+            </Card>
         </div>
     </div>
 )

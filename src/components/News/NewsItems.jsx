@@ -2,6 +2,8 @@ import react from "react";
 import axios from "axios";
 import { useState } from "react";
 
+//this is main app to commit and push
+
 
 function NewsItems(props) {
     const [search, setSearch] = useState("");
