@@ -62,7 +62,3 @@ function NewsItems(props) {
 };
 
 export default NewsItems;
-
-// change side to top news?
-// create Search function to initiate search using keywords
-// 
