@@ -1,0 +1,7 @@
+.results-list {
+    width: 300px;
+    box-shadow: 2px 2px 5px black;
+    max-height: 200px;
+    overflow-y: scroll;
+    position: absolute;
+}
