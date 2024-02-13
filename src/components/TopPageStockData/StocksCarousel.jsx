@@ -1,30 +1,14 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import StockData from "./StockData";
 import stocks from "../data/gainers-losers-activelydata.json";
-import "./StocksCarousel.scss";
 
 const StocksCarousel = () => {
-  const carouselRef = useRef(null);
-
-  // Function to scroll the carousel
-  const scrollCarousel = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 1; // Adjust scroll speed as needed
-    }
-  };
-
-  // Automatically scroll the carousel
-  useEffect(() => {
-    const intervalId = setInterval(scrollCarousel, 50); // Adjust interval duration as needed
-    return () => clearInterval(intervalId);
-  }, []);
-
   return (
+    // Container for the carousel with overflow hidden to hide overflowing content
     <div className="overflow-hidden carousel-container">
-      <div
-        ref={carouselRef}
-        className="flex gap-4 py-2 carousel-track" // Adjust gap and other styles as needed
-      >
+      {/* Flex container for the carousel items with specified gap and padding */}
+      <div className="flex gap-4 py-2">
+        {/* Mapping over the most actively traded stocks to render each as a StockData component */}
         {stocks.most_actively_traded.map((stock, idx) => (
           <StockData
             key={idx}
