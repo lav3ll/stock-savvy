@@ -6,26 +6,10 @@
   width: 100%;
 }
 
-.carousel-card {
-  // display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-  &:hover {
-    transform: scale(0.9);
-    box-shadow: 5px 5px 8px rgba(222, 222, 222, 0.362),
-      10px 10px 8px rgba(152, 133, 133, 0.392),
-      15px 15px 8px rgba(139, 154, 139, 0.303);
-  }
-  border-radius: 3%;
-  // background: rgb(41, 40, 40);
-}
-
 .carousel-track {
   position: relative;
   height: 100%;
-  animation: slide 1s linear infinite;
+  animation: slide 10s linear infinite;
   &:hover {
     animation-play-state: paused;
   }

@@ -14,9 +14,7 @@ function App() {
   return (
     <>
       <Dashboard />
-      <StocksCarousel />
       <GLContainer />
-      <Modal isOpen={isModalOpen} onClose={toggleModal} />
     </>
   );
 }

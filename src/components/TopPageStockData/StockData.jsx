@@ -23,7 +23,7 @@ const StockData = ({
   };
 
   return (
-    <div className="carousel-card">
+    <div>
       {/* Display the ticker symbol and make it clickable to open the modal */}
       <h1 className="text-lg font-bold cursor-pointer" onClick={toggleModal}>
         {ticker}
