@@ -1,0 +1,25 @@
+.carousel-container {
+  // overflow: hidden;
+  position: relative;
+  height: fit-content;
+  border-color: #4b5563;
+  width: 100%;
+}
+
+.carousel-track {
+  position: relative;
+  height: 100%;
+  animation: slide 60s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
