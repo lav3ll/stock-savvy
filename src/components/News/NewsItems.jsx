@@ -11,14 +11,17 @@ function NewsItems(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&apikey=3bcaf7196b03271776f870904803a308`)
-        // axios.request(`https://api.currentsapi.services/v1/search?apiKey=1wMY1qB4mop_JYwMJ-ZSM8_-g6JXv5zIz2OW4PXryGNYehjc&keywords=${search}`)
+        axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&in=title,description&apikey=3bcaf7196b03271776f870904803a308`)
             .then((response) => {
                 console.log(response.data.articles);
                 if (response && response.data.articles)
                     setImgSrc(response.data.image);
                     props.setNews(response.data.articles)
+                    setSearch(""); 
             })
+            .catch((error) => {
+                console.error('Error fetching news', error);
+            });
     };
     return (
         <form className="relative" onSubmit ={handleSubmit}>

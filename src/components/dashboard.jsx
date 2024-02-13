@@ -6,6 +6,7 @@ import stocks from "./data/gainers-losers-activelydata.json"; // Importing the s
 import { StocksLanding } from "./TopPageStockData/StocksLanding";
 import NewsItems from "./News/NewsItems";
 
+
 // // Extracting the most actively traded stocks from the imported JSON data
 // const mostActivelyTraded = stocks.most_actively_traded;
 
@@ -64,16 +65,17 @@ const Dashboard = () => {
         <div className="row-span-2 xl:row-span-3">
             <Card> 
                 <h3 className="font-semibold"> News </h3> 
-                {news.map((article, idx) => 
-                <a href={article.url} target="_blank">
-                 <Card key={idx}> 
-                    <img src={article.image} alt={article.title}/>
-                        <h5 className="font-semibold text-left"> {article.title} </h5>
-                        <p className="text-left text-xs"> {article.description} </p>
-                        <p className="text-left text-xs"> {article.publishedAt}</p>
+                {/* added TopHeadlines */}
+                {news.map((article, idx) => (
+                    <a href={article.url} target="_blank" key={idx}>
+                    <Card > 
+                        <img src={article.image} alt={article.title}/>
+                            <h5 className="font-semibold text-left"> {article.title} </h5>
+                            <p className="text-left text-xs"> {article.description} </p>
+                            <p className="text-left text-xs"> {article.publishedAt}</p>
                     </Card>
-                </a> 
-                    )}
+                    </a> 
+                ))}
             </Card>
         </div>
     </div>
