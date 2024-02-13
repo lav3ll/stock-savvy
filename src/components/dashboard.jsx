@@ -37,10 +37,12 @@ import NewsItems from "./News/NewsItems";
 
 
 const Dashboard = () => {
+    // removed [] inside usesate()
     const [news, setNews] = useState([]);
     useEffect(() => {
         console.log(news);
     }, [news]);
+    // }, [news]); 
 
     return (
     <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8">
@@ -60,18 +62,13 @@ const Dashboard = () => {
             <Card>Overview</Card>
         </div>
         <div className="row-span-2 xl:row-span-3">
-            <Card> 
-            <h3 className="font-semibold"> News </h3> 
+            <Card> <h3 className="font-semibold"> News </h3> </Card>
             {news.map((article, idx) => <Card key={idx}> 
                 <img src={article.image} alt={article.title}/>
-                    <h5 className="font-semibold text-left hover:font-bold">
-                        {article.title} 
-                    </h5>
-                    <p className="text-left text-xs">
-                        {article.description}
-                    </p>
+                    <h5 className="font-semibold text-left hover:font-bold"> {article.title} </h5>
+                    <p className="text-left text-xs"> {article.description} </p>
                 </Card>)}
-            </Card>
+            
         </div>
     </div>
 )
