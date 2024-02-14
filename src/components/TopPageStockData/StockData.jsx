@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../GlobalComponents/Modal";
 import stockData from "../data/modalTestData.json";
-import timeSeriesData from "../data/stockSeriesIntrdayTestData.json";
+import timeSeriesData from "../data/stockSeriesTestData.json";
 import "./StocksCarousel.scss";
 import axios from "axios";
 
@@ -19,6 +19,7 @@ const StockData = ({
   // State to manage the modal's visibility and data
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [modalLineData, setmodalLineData] = useState(null);
 
   // Function to fetch modal data and toggle the modal
   const toggleModal = () => {
@@ -50,7 +51,7 @@ const StockData = ({
     // Fetch intraday time series data
     axios
       .get(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&outputsize=full&apikey=SWQUV2JZH8YTDYQ5`
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&interval=5min&outputsize=full&apikey=SWQUV2JZH8YTDYQ5`
       )
       .then((response) => {
         if (
@@ -60,9 +61,9 @@ const StockData = ({
             "Thank you for using Alpha Vantage!"
           )
         ) {
-          console.log(timeSeriesData["Time Series (5min)"]);
+          setmodalLineData(timeSeriesData);
         } else {
-          console.log(response.data["Time Series (5min)"]);
+          setmodalLineData(response.data);
         }
       })
       .catch((error) => {
@@ -82,6 +83,7 @@ const StockData = ({
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           data={modalData}
+          lineData={modalLineData}
         />
       )}
       {/* Display the price */}
