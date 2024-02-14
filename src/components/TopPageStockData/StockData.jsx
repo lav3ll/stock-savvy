@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Modal from "../GlobalComponents/Modal";
-import stockData from "../data/modalTestData.json";
-import timeSeriesData from "../data/stockSeriesTestData.json";
-import "./StocksCarousel.scss";
-import axios from "axios";
+import React, { useState } from 'react';
+import Modal from '../GlobalComponents/Modal';
+import stockData from '../data/modalTestData.json';
+import timeSeriesData from '../data/stockSeriesTestData.json';
+import './StocksCarousel.scss';
+import axios from 'axios';
 
 const StockData = ({
   ticker,
@@ -32,7 +32,7 @@ const StockData = ({
           response.data &&
           response.data.Information &&
           response.data.Information.includes(
-            "Thank you for using Alpha Vantage!"
+            'Thank you for using Alpha Vantage!'
           )
         ) {
           // Use stockData import if the response contains rate limit message
@@ -43,7 +43,7 @@ const StockData = ({
         setIsModalOpen(true);
       })
       .catch((error) => {
-        console.error("Error fetching modal data:", error);
+        console.error('Error fetching modal data:', error);
         // Log the entire error object for more details
         console.error(error);
       });
@@ -58,7 +58,7 @@ const StockData = ({
           response.data &&
           response.data.Information &&
           response.data.Information.includes(
-            "Thank you for using Alpha Vantage!"
+            'Thank you for using Alpha Vantage!'
           )
         ) {
           setmodalLineData(timeSeriesData);
@@ -67,14 +67,14 @@ const StockData = ({
         }
       })
       .catch((error) => {
-        console.error("Error fetching intraday time series data:", error);
+        console.error('Error fetching intraday time series data:', error);
       });
   };
 
   return (
-    <div className="ml-6">
+    <div className='ml-6'>
       {/* Display the ticker symbol and make it clickable to open the modal */}
-      <h1 className="text-lg font-bold cursor-pointer" onClick={toggleModal}>
+      <h1 className='text-lg font-bold cursor-pointer' onClick={toggleModal}>
         {ticker}
       </h1>
       {/* Modal */}
@@ -87,11 +87,11 @@ const StockData = ({
         />
       )}
       {/* Display the price */}
-      <p className="text-gray-600">${price}</p>
+      <p className='text-gray-600'>${price}</p>
       {/* Apply text color class based on whether change amount is positive or negative */}
       <p
         className={`${
-          formattedChangeAmount > 0 ? "text-green-600" : "text-red-600"
+          formattedChangeAmount > 0 ? 'text-green-600' : 'text-red-600'
         }`}
       >
         {formattedChangeAmount}
@@ -99,7 +99,7 @@ const StockData = ({
       {/* Apply text color class based on whether change percentage is positive or negative */}
       <p
         className={`text-${
-          formattedChangePercentage >= 0 ? "green" : "red"
+          formattedChangePercentage >= 0 ? 'green' : 'red'
         }-600`}
       >
         {formattedChangePercentage}%
