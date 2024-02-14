@@ -12,6 +12,7 @@ import { Line } from "react-chartjs-2";
 
 
 function App() {
+  const [news, setNews] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -19,8 +20,8 @@ function App() {
   };
   return (
     <>
-      <Navbar></Navbar>
-      <Dashboard />
+      <Navbar news={news} setNews={setNews}></Navbar>
+      <Dashboard news={news} setNews={setNews}/>
     </>
   );
 }
