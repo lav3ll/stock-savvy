@@ -14,14 +14,15 @@ import { Line } from "react-chartjs-2";
 function App() {
   const [news, setNews] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [fiftyDayAverage, setFiftyDayAverage] = useState(null)
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
   return (
     <>
-      <Navbar news={news} setNews={setNews}></Navbar>
-      <Dashboard news={news} setNews={setNews}/>
+      <Navbar news={news} setNews={setNews} setFiftyDayAverage={setFiftyDayAverage}></Navbar>
+      <Dashboard news={news} setNews={setNews} fiftyDayAverage={fiftyDayAverage}/>
     </>
   );
 }
