@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar"
 
 
 function App() {
+  const [news, setNews] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -16,8 +17,8 @@ function App() {
   };
   return (
     <>
-      <Navbar></Navbar>
-      <Dashboard />
+      <Navbar news={news} setNews={setNews}></Navbar>
+      <Dashboard news={news} setNews={setNews}/>
       {/* <StocksLanding />
       <GLContainer /> */}
       <TopsHeadlines />

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Card from "./card";
-// import Search from "./Search";
 import StockData from "./TopPageStockData/StockData"; // Importing the StockData component
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 import NewsItems from "./News/NewsItems";
+
 
 import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
 
@@ -32,9 +32,9 @@ import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
 //   );
 // };
 
-const Dashboard = () => {
+const Dashboard = ({news, setNews}) => {
    
-    const [news, setNews] = useState([]);
+    // const [news, setNews] = useState([]);
     useEffect(() => {
         console.log(news);
     }, [news]);
@@ -59,7 +59,7 @@ const Dashboard = () => {
         </div>
         <div className="row-span-2 xl:row-span-3">
             <Card> 
-                <h3 className="font-semibold"> News </h3> 
+                <h3 className="font-semibold"> News </h3> </Card>
                 {news.map((article, idx) => (
                     <a href={article.url} target="_blank" key={idx}>
                     <Card > 
@@ -70,7 +70,7 @@ const Dashboard = () => {
                     </Card>
                     </a> 
                 ))}
-            </Card>
+            
         </div>
     </div>
   );

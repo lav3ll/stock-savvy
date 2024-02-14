@@ -1,10 +1,12 @@
 import React, {useState} from "react"
 import {FaSearch} from "react-icons/fa"
 import "./Searchbar.css"
+import axios from "axios";
 
-export default function Searchbar({ setResults }) {
+export default function Searchbar({ setResults, news, setNews }) {
 
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState("");
+    
     
 
     //The RapidAPI options for the Yahoo finance call
@@ -30,17 +32,35 @@ export default function Searchbar({ setResults }) {
         })
     };
 
+    function getNews(search) {
+        axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&in=title,description&apikey=3bcaf7196b03271776f870904803a308`)
+        .then((response) => {
+            console.log(response.data.articles);
+            if (response && response.data.articles)
+                // setImgSrc(response.data.image);
+               setNews(response.data.articles)
+                // setSearch(""); 
+
+        })
+        .catch((error) => {
+            console.error('Error fetching news', error);
+        });
+    }
+
     const handleChange = (value) => {
         setInput(value)
         if (value) {
             getYahooData(value)
+            getNews(value)
         }
     }
 
     return (
         <div className="input-wrapper flex items-center gap-3">
             <FaSearch/>
-            <input placeholder="Search for a company..." className="p-1 text-black" value={input} onChange={(e) => handleChange(e.target.value)}/>
+            <input placeholder="Search for a company..." className="p-1 text-black" 
+            value={input} 
+            onChange={(e) => handleChange(e.target.value)}/>
         </div>
     )
 }

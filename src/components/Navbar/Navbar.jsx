@@ -2,7 +2,7 @@ import { useState } from "react"
 import Searchbar from "./Searchbar"
 import SearchResultsList from "./SearchResultsList"
 
-export default function Navbar() {
+export default function Navbar({news, setNews}) {
 
 const [results, setResults] = useState([])
 
@@ -13,7 +13,7 @@ const [results, setResults] = useState([])
                 <a href="/" className="my-site text-3xl">Stock Savvy</a>
             </div>
             <div className="searchbar-container">
-                <Searchbar setResults={setResults}/>
+                <Searchbar news={news} setNews={setNews} setResults={setResults}/>
                 <SearchResultsList results={results} />
             </div>
             <ul className="flex gap-8">

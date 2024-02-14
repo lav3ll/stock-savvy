@@ -11,6 +11,8 @@ function NewsItems(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        //gnews api call
         axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&in=title,description&apikey=3bcaf7196b03271776f870904803a308`)
             .then((response) => {
                 console.log(response.data.articles);

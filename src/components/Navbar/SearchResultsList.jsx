@@ -1,6 +1,6 @@
 import react from "react";
 import "./SearchResultsList.css"
-
+import NewsItems from "../News/NewsItems";
 
 export default function SearchResultsList({ results }) {
     return (
