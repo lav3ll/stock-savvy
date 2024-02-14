@@ -2,6 +2,7 @@ import { ResponsiveBar } from '@nivo/bar';
 import NivoTheme from '../data/NivoTheme.json';
 
 const BarChart = ({ stockData }) => {
+  //Test for commit purposes
   const data = [
     {
       metric: 'Market Capitalization',
