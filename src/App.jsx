@@ -6,6 +6,9 @@ import Dashboard from "./components/dashboard";
 import TopsHeadlines from "./components/News/Topheadlines";
 import Modal from "./components/GlobalComponents/Modal";
 import Navbar from "./components/Navbar/Navbar"
+import { Chart as ChartJS } from "chart.js/auto";
+import { Line } from "react-chartjs-2";
+
 
 
 function App() {
@@ -18,9 +21,6 @@ function App() {
     <>
       <Navbar></Navbar>
       <Dashboard />
-      {/* <StocksLanding />
-      <GLContainer /> */}
-      <TopsHeadlines />
     </>
   );
 }
