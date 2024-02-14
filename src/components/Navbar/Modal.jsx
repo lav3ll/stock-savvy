@@ -19,9 +19,9 @@ export default function Modal() {
         <div className="my-modal">
             <div className="my-overlay" onClick={toggleModal}></div>
             <div className="modal-content text-black">
-                <h2 className="modal-header">Contact Us</h2>
+                <h2 className="modal-header"><b>Contact Us</b></h2>
                 <p><b>Email: </b>customersupport@stocksavvy.com</p>
-                <p><b>Phone: </b>01483 700700</p>
+                <p><b>Phone: </b>01483 123456</p>
                 <p><b>Intsagram: </b>@stock_savvy</p>
                 <button className="close-btn" onClick={toggleModal}>Close</button>
             </div>

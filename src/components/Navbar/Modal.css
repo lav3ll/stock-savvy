@@ -1,3 +1,7 @@
+.div-modal:hover {
+    cursor: pointer;
+}
+
 .my-modal, .my-overlay {
     width: 100vw;
     height: 100vh;
