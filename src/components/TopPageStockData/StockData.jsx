@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Modal from "../GlobalComponents/Modal";
-import modalData from "../data/modalTestData.json";
+import stockData from "../data/modalTestData.json";
 import "./StocksCarousel.scss";
+import axios from "axios";
 
 const StockData = ({
   ticker,
@@ -14,12 +15,36 @@ const StockData = ({
   const formattedChangePercentage = parseFloat(change_percentage).toFixed(2);
   const formattedChangeAmount = parseFloat(change_amount);
 
-  // State to manage the modal's visibility
+  // State to manage the modal's visibility and data
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
-  // Function to toggle the modal's visibility
+  // Function to fetch modal data and toggle the modal
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+    axios
+      .request(
+        `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=6AQV1N59NWL5U1P4`
+      )
+      .then((response) => {
+        if (
+          response.data &&
+          response.data.Information &&
+          response.data.Information.includes(
+            "Thank you for using Alpha Vantage!"
+          )
+        ) {
+          // Use stockData import if the response contains rate limit message
+          setModalData(stockData);
+        } else {
+          setModalData(response.data);
+        }
+        setIsModalOpen(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching modal data:", error);
+        // Log the entire error object for more details
+        console.error(error);
+      });
   };
 
   return (
@@ -30,7 +55,11 @@ const StockData = ({
       </h1>
       {/* Modal */}
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={toggleModal} data={modalData} />
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          data={modalData}
+        />
       )}
       {/* Display the price */}
       <p className="text-gray-600">${price}</p>
