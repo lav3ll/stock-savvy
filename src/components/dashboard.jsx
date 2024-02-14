@@ -11,9 +11,9 @@ import Chart from "./chart.jsx";
 // import StockChart from "./chart";
 
 
-const Dashboard = () => {
+const Dashboard = ({news,setNews}) => {
    
-    const [news, setNews] = useState([]);
+    // const [news, setNews] = useState([]);
     useEffect(() => {
         console.log(news);
     }, [news]);
@@ -137,48 +137,3 @@ export default Dashboard;
 //   );
 // };
 
-const Dashboard = ({news, setNews}) => {
-   
-    const [news, setNews] = useState([]);
-    useEffect(() => {
-        console.log(news);
-    }, [news]);
-    
-
-    return (
-    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8">
-        <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
-            <h1>Stock Savvy</h1>
-            <br></br>
-            <NewsItems news={news} setNews={setNews} />
-            {/* <Search/> I put the search bar into the NewsItem component */} 
-        </div>
-        <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
-        <StocksCarousel />
-        </div>
-        <div className="md:col-span-2 row-span-4">
-            <Card>Chart</Card>
-        </div>
-        <div>
-            <Card>Overview</Card>
-        </div>
-        <div className="row-span-2 xl:row-span-3">
-            <Card> 
-                <h3 className="font-semibold"> News </h3> </Card>
-                {news.map((article, idx) => (
-                    <a href={article.url} target="_blank" key={idx}>
-                    <Card > 
-                        <img src={article.image} alt={article.title}/>
-                            <h5 className="font-semibold text-left"> {article.title} </h5>
-                            <p className="text-left text-xs"> {article.description} </p>
-                            <p className="text-left text-xs"> {article.publishedAt}</p>
-                    </Card>
-                    </a> 
-                ))}
-            
-        </div>
-    </div>
-  );
-};
-
-export default Dashboard;
