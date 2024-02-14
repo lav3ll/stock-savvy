@@ -1,126 +1,77 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import mockMonthlyData from './constants/mockMonthlyData'; // importing the mock data JSON file
 import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-
+import mockMonthlyData from './constants/mockMonthlyData.json'; // Adjust the import path as needed
 
 const Chart = () => {
+  const useLiveData = false; // Set to true to use live data, false to use mock data from mockMonthlyData.json 
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "Closing Price",
+        data: [],
+        backgroundColor: "#064ff0",
+        borderColor: "#064ff0",
+        borderWidth: 1
+      },
+    ]
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let monthlyData;
+      if (useLiveData) {
+        try {
+          const response = await axios.get('https://www.alphavantage.co/query', {
+            params: {
+              function: 'TIME_SERIES_MONTHLY_ADJUSTED',
+              symbol: 'IBM', // NEED TO CHANGE THIS TO SEARCH RESULT SYMBOL FROM THE SEARCH BAR 
+              apikey: '3JRNVJB2L0SVNOO1' // Alex's API key for Alpha Vantage
+            }
+          });
+          monthlyData = response.data['Monthly Adjusted Time Series'];
+        } catch (error) {
+          console.error('Error fetching live data:', error);
+          return;
+        }
+      } else {
+        // Use mock data
+        monthlyData = mockMonthlyData["Monthly Time Series"];
+      }
+      updateChartData(monthlyData);
+    };
+
+    fetchData();
+  }, []); // Empty array ensures this effect runs only once after the initial render
+
+  const updateChartData = (data) => {
+    const labels = [];
+    const chartData = [];
+    Object.entries(data).forEach(([date, value]) => {
+      labels.unshift(date); // Add date as label
+      chartData.unshift(value['4. close']); // Add closing price
+    });
+    setChartData({
+      labels,
+      datasets: [
+        {
+          label: "Closing Price",
+          data: chartData,
+          backgroundColor: "#064ff0",
+          borderColor: "#064ff0",
+          borderWidth: 1
+        },
+      ]
+    });
+  };
+
   return (
-    <div>Test</div>
-  )
+    <div>
+      <Line data={chartData} />
+    </div>
+  );
 }
 
-export default Chart
-
-// const useMockData = true; // Avoid overloading the API 
-    
-//     const StockChart = ({ symbol }) => {
-//         const chartRef = useRef(null);
-//         const [chartData, setChartData] = useState(null);
-      
-//         useEffect(() => {
-//           const processData = (data) => {
-//             const monthlyData = data['Monthly Time Series'];
-//             const chartLabels = Object.keys(monthlyData).slice(0, 30).reverse();
-//             const chartPrices = chartLabels.map(date => monthlyData[date]['4. close']);
-      
-//             setChartData({
-//               labels: chartLabels,
-//               datasets: [
-//                 {
-//                   label: `${symbol} Monthly Close Prices`,
-//                   backgroundColor: 'rgba(53, 162, 235, 0.5)',
-//                   borderColor: 'rgb(53, 162, 235)',
-//                   data: chartPrices,
-//                 },
-//               ],
-//             });
-//           };
-      
-//           if (useMockData) {
-//             // Use mock data
-//             processData(mockMonthlyData);
-//         } else {
-//             // Fetch real data from API
-//             try {
-//             const apiKey = '3JRNVJB2L0SVNOO1'; // Alex's API key
-//             const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${symbol}&apikey=${apiKey}`;
-  
-//             const response = await axios.get(url);
-//             processData(response.data);
-//           } catch (error) {
-//             console.error('Error fetching stock data:', error);
-//           }
-//         }
-//       };
-  
-//       fetchData();
-//     }, [symbol]);,import React, { useEffect, useState, useRef } from 'react';
-//     import axios from 'axios';
-//     import {Chart} from 'chart.js';
-//     import mockMonthlyData from './constants/mockMonthlyData'; // importing the mock data JSON file
-    
-//     const useMockData = true; // Avoid overloading the API 
-    
-//     const StockChart = ({ symbol }) => {
-//       const chartRef = useRef(null);
-//       const [chartData, setChartData] = useState(null);
-    
-//       useEffect(() => {
-//         const processData = (data) => {
-//           const monthlyData = data['Monthly Time Series'];
-//           const chartLabels = Object.keys(monthlyData).slice(0, 30).reverse();
-//           const chartPrices = chartLabels.map(date => monthlyData[date]['4. close']);
-    
-//           setChartData({
-//             labels: chartLabels,
-//             datasets: [
-//               {
-//                 label: ` Monthly Close Prices`,
-//                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
-//                 borderColor: 'rgb(53, 162, 235)',
-//                 data: chartPrices,
-//               },
-//             ],
-//           });
-//         };
-    
-//         if (useMockData) {
-//           // Use mock data
-//           processData(mockMonthlyData);
-//         } else {
-//           // Fetch real data from API
-//           try {
-//             const apiKey = '3JRNVJB2L0SVNOO1'; // Alex's API key
-//             const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=&apikey=`;
-    
-//             const response = await axios.get(url);
-//             processData(response.data);
-//           } catch (error) {
-//             console.error('Error fetching stock data:', error);
-//           }
-//         }
-//       }, [symbol]);
-    
-//       useEffect(() => {
-//         if (chartData && chartRef.current) {
-//           const chartContext = chartRef.current.getContext('2d');
-//           new Chart(chartContext, {
-//             type: 'line',
-//             data: chartData,
-//             options: {
-//               scales: {
-//                 y: {
-//                   beginAtZero: false,
-//                 },
-//               },
-//             },
-//           });
-//         }
-//       }, [chartData]);
-    
-//       return <canvas ref={chartRef}></canvas>;
-//     };
-    
-//     export default StockChart;
+export default Chart;

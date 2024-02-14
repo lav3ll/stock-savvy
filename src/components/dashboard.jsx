@@ -31,8 +31,11 @@ const Dashboard = () => {
         </div> */}
         <div className="md:col-span-2 row-span-4">
             <Card>
+                <h2>Markets Today</h2>
                 <StocksCarousel />
+                <h2>IBM</h2>
                 <Chart />
+                <br></br>
             </Card>
         </div>
         <div>
