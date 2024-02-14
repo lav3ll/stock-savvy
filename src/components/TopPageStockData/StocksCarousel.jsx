@@ -21,7 +21,7 @@ const StocksCarousel = () => {
 
   return (
     // Container for the carousel with overflow hidden to hide overflowing content
-    <div className="overflow-hidden carousel-container">
+    <div className="overflow-hidden carousel-container ">
       {/* Flex container for the carousel items with specified gap and padding */}
       <div ref={carouselRef} className="flex gap-4 py-2 carousel-track">
         {stocks.most_actively_traded.map((stock, idx) => (

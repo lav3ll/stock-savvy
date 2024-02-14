@@ -23,6 +23,7 @@ function App() {
       <TopsHeadlines />
     </>
   )
+  );
 }
 
 export default App;
