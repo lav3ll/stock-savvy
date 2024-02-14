@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../GlobalComponents/Modal";
 import stockData from "../data/modalTestData.json";
+import timeSeriesData from "../data/stockSeriesIntrdayTestData.json";
 import "./StocksCarousel.scss";
 import axios from "axios";
 
@@ -44,6 +45,28 @@ const StockData = ({
         console.error("Error fetching modal data:", error);
         // Log the entire error object for more details
         console.error(error);
+      });
+
+    // Fetch intraday time series data
+    axios
+      .get(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&outputsize=full&apikey=SWQUV2JZH8YTDYQ5`
+      )
+      .then((response) => {
+        if (
+          response.data &&
+          response.data.Information &&
+          response.data.Information.includes(
+            "Thank you for using Alpha Vantage!"
+          )
+        ) {
+          console.log(timeSeriesData["Time Series (5min)"]);
+        } else {
+          console.log(response.data["Time Series (5min)"]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching intraday time series data:", error);
       });
   };
 
