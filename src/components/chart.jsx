@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-import mockMonthlyData from './constants/mockMonthlyData.json'; // Adjust the import path as needed
+import mockMonthlyData from './constants/mockMonthlyData.json'; 
 
 const Chart = () => {
   const useLiveData = false; // Set to true to use live data, false to use mock data from mockMonthlyData.json 
@@ -27,7 +27,7 @@ const Chart = () => {
           const response = await axios.get('https://www.alphavantage.co/query', {
             params: {
               function: 'TIME_SERIES_MONTHLY_ADJUSTED',
-              symbol: 'IBM', // NEED TO CHANGE THIS TO SEARCH RESULT SYMBOL FROM THE SEARCH BAR 
+              symbol: 'TSLA', // NEED TO CHANGE THIS TO SEARCH RESULT SYMBOL FROM THE SEARCH BAR 
               apikey: '3JRNVJB2L0SVNOO1' // Alex's API key for Alpha Vantage
             }
           });
@@ -44,7 +44,7 @@ const Chart = () => {
     };
 
     fetchData();
-  }, []); // Empty array ensures this effect runs only once after the initial render
+  }, []); // Keep empty so this runs only once after the initial render
 
   const updateChartData = (data) => {
     const labels = [];
@@ -68,9 +68,7 @@ const Chart = () => {
   };
 
   return (
-    <div>
       <Line data={chartData} />
-    </div>
   );
 }
 
