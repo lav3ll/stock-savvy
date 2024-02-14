@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect } from "react";
 import Card from "./card";
-// import Search from "./Search";
 import StockData from "./TopPageStockData/StockData"; // Importing the StockData component
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 import NewsItems from "./News/NewsItems";
@@ -10,9 +9,9 @@ import Chart from "./chart.jsx";
 // import StockChart from "./chart";
 
 
-const Dashboard = () => {
+const Dashboard = ({news,setNews}) => {
    
-    const [news, setNews] = useState([]);
+
     useEffect(() => {
         console.log(news);
     }, [news]);
@@ -23,9 +22,7 @@ const Dashboard = () => {
         <div className="col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1">
             <Card>
                 <h2>Search for Stock Info</h2>
-            <NewsItems news={news} setNews={setNews} />
             </Card>
-            {/* <Search/> I put the search bar into the NewsItem component */} 
         </div>
         {/* <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
         </div> */}
@@ -134,4 +131,5 @@ export default Dashboard;
 //       </div>
 //     </div>
 //   );
+// };
 
