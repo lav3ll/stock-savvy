@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Searchbar from "./Searchbar"
 import SearchResultsList from "./SearchResultsList"
+import Modal from "./Modal"
 
 export default function Navbar() {
 
@@ -18,7 +19,7 @@ const [results, setResults] = useState([])
             </div>
             <ul className="flex gap-8">
                 <li><a href="/">Home</a></li>
-                <li>Contact Us</li>
+                <li><Modal></Modal></li>
             </ul>
         </nav>
     )
