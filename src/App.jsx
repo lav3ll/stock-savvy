@@ -3,7 +3,7 @@ import "./App.css";
 import StocksCarousel from "./components/TopPageStockData/StocksCarousel";
 import GLContainer from "./components/SideStockData/GLContainer";
 import Dashboard from "./components/dashboard";
-import TopsHeadlines from "./components/News/Topheadlines";
+// import TopsHeadlines from "./components/News/Topheadlines";
 import Modal from "./components/GlobalComponents/Modal";
 import Navbar from "./components/Navbar/Navbar"
 import { Chart as ChartJS } from "chart.js/auto";

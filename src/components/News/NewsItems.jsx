@@ -10,11 +10,11 @@ function NewsItems(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&in=title,description&apikey=3bcaf7196b03271776f870904803a308`)
+        axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&category=business,finance&in=title,description&apikey=3bcaf7196b03271776f870904803a308`)
             .then((response) => {
                 console.log(response.data.articles);
                 if (response && response.data.articles)
-                    setImgSrc(response.data.image);
+                    // setImgSrc(response.data.image);
                 props.setNews(response.data.articles)
                 setSearch("");
 

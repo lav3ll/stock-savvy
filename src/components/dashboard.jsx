@@ -4,7 +4,7 @@ import StockData from "./TopPageStockData/StockData"; // Importing the StockData
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 import NewsItems from "./News/NewsItems";
 import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
-import TopsHeadlines from "./News/Topheadlines";
+// import TopsHeadlines from "./News/Topheadlines";
 import Chart from "./chart.jsx";
 // import StockChart from "./chart";
 
