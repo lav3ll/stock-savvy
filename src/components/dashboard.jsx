@@ -3,8 +3,6 @@ import Card from "./card";
 import StockData from "./TopPageStockData/StockData"; // Importing the StockData component
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 import NewsItems from "./News/NewsItems";
-
-
 import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
 import TopsHeadlines from "./News/Topheadlines";
 import Chart from "./chart.jsx";
@@ -13,7 +11,7 @@ import Chart from "./chart.jsx";
 
 const Dashboard = ({news,setNews}) => {
    
-    // const [news, setNews] = useState([]);
+
     useEffect(() => {
         console.log(news);
     }, [news]);
@@ -24,9 +22,7 @@ const Dashboard = ({news,setNews}) => {
         <div className="col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1">
             <Card>
                 <h2>Search for Stock Info</h2>
-            <NewsItems news={news} setNews={setNews} />
             </Card>
-            {/* <Search/> I put the search bar into the NewsItem component */} 
         </div>
         {/* <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
         </div> */}
