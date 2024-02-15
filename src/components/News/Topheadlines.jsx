@@ -23,14 +23,14 @@ function TopsHeadlines () {
     
         return (
             <>
-            <h2 className="text-left text-2xl"> Today's Headlines </h2>
+            <h2 className="text-left text-2xl col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1 mt-20"> Today's Headlines </h2>
             {topHeadlines.map((newsItem, index) => (
-                 <a href={newsItem.url} target="_blank" key={index} className="m-2 flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                 <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={newsItem.image} alt={newsItem.title} />
+                 <a href={newsItem.url} target="_blank" key={index} className="m-2 flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-indigo-50">
+                 <img className="rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={newsItem.image} alt={newsItem.title} />
                  <div className="flex flex-col justify-between p-4 leading-normal">
-                     <h5 className="mb-2 text-l text-left font-bold tracking-tight text-gray-900 dark:text-white">{newsItem.title}</h5>
-                     <p className="p-2 mb-3 font-normal text-left text-gray-700 dark:text-gray-400">{truncateDescription(newsItem.description, 20) + '...'}</p>
-                     <p className="text-xs text-gray-400 text-left">Published at: {newsItem.publishedAt} </p>
+                     <h5 className="mb-2 text-l text-left font-bold tracking-tight ">{newsItem.title}</h5>
+                     <p className="p-2 mb-3 font-normal text-left ">{truncateDescription(newsItem.description, 20) + '...'}</p>
+                     <p className="text-xs text-left">Published at: {newsItem.publishedAt} </p>
                  </div>
              </a>
             ))};
