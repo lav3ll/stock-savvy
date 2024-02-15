@@ -7,15 +7,17 @@ StockSavvy is a web application designed to assit you with essential data about 
 
 
 ## Usage
-[insert screenshot of web app]
+![alt text](assets/images/stock-savvy-web.png)<br>
 
 The StockSavvy dashboard contains: <br>
  A carousel that displays the biggest gaining and losing stocks during the day. 
 <br>
+<br>
 A graph displays the last 30 days performance of the S&P 500
 <br>
+<br>
 The search function, allows the user to find stocks using keyuwords, the company name or through a list of suggested company tickers displayed on the drop down. This will display an overview of key financial metrics which allows the user to monitor and track the performance of stocks in real-time. As well as provide you with current related news. <br>
-[insert image]
+![alt text](assets/images/search.png)
 <br>
 
 ## Credits
