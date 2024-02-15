@@ -10,7 +10,6 @@ function NewsItems(props) {
         e.preventDefault();
         axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&category=business,finance&in=title&apikey=3bcaf7196b03271776f870904803a308`)
             .then((response) => {
-                console.log(response.data.articles);
                 if (response && response.data.articles)
                 props.setNews(response.data.articles)
                 setSearch("");
