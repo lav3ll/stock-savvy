@@ -1,7 +1,7 @@
 import React from "react";
 
 const Card = ({ children }) => {
-    return <div className ="w-full h-auto min-h-28 rounded-md relative p-5 border-1 bg-indigo-50">{children}</div>
+    return <div className ="w-full h-full rounded-md relative p-8 border-2 bg-indigo-50 overflow-auto flex-grow">{children}</div>
 };
 
 export default Card; 

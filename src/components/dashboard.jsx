@@ -4,7 +4,15 @@ import StockData from "./TopPageStockData/StockData"; // Importing the StockData
 import stocks from "./data/gainers-losers-activelydata.json"; // Importing the stock data JSON file
 import StocksCarousel from "../components/TopPageStockData/StocksCarousel";
 import Chart from "./chart.jsx";
-import NewsCard from "./News/NewsCard.jsx";
+import NewsCard from "./News/NewsCard";
+import GLContainer from "./SideStockData/GLContainer";
+import Modal from "./GlobalComponents/Modal";
+import Navbar from "./Navbar/Navbar";
+import { Chart as ChartJS } from "chart.js/auto";
+import { Line } from "react-chartjs-2";
+
+
+
 // import StockChart from "./chart";
 
 const Dashboard = ({
@@ -20,19 +28,42 @@ const Dashboard = ({
 
 
   return (
-    <div className='h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8'>
-      <div className='col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1'>
+    <div className='h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 gap-4 p-8 flex flex-col'>
+      {/* <div className='col-span-1 md:col-span-2 xl:col-span-3 row-span-1 flex justify-start items-center'>
         <Card>
-          <h2>Search for Stock Info</h2>
+        <h2 className='text-xl font-semibold'>Welcome to Stock Savvy!</h2>
+        <p className='text-gray-700 text-sm'>
+          This is a dashboard that helps you navigate the stock market. On the <b>search bar</b> above, you can search for a stock by name or by ticker symbol.
+        </p>
         </Card>
-      </div>
-      {/* <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
-        </div> */}
+      </div> */}
+      <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1 ">
+        <Card>
+        <h2 className='text-xl font-semibold'>Welcome to Stock Savvy!</h2>
+        <p className='text-gray-700 text-l'>
+          This is a dashboard that helps you navigate the stock market. 
+          
+          Here's how to use the site in 5 easy steps: 
+          <br></br>
+          1. On the <b>Search Bar</b> above, you can search for a stock by name or by ticker symbol.
+          <br></br>
+          2. In the <b>Markets Today</b> below, you will find the gainers and losers of the most actively traded stocks.
+          <br></br>
+          3. In the <b>Overview</b> section to the right, you will find further infromation about the stock that you have submitted on the search bar. 
+          <br></br>
+          4. In the <b>News</b> section to the lower right, you will find the latest relevant news about the stock that you have submitted on the search bar. 
+          <br></br>
+          5. Most importantly, <b>thanks</b> for your visit and enjoy <b>Stock Savvy</b>.
+        </p>
+        </Card>
+        </div>
       <div className='md:col-span-2 row-span-4'>
         <Card>
           <h2 className='text-xl font-semibold'>Markets Today</h2>
+          <br></br>
           <StocksCarousel />
-          <h2>IBM</h2>
+          <br></br>
+          <h2 class="text-xl font-semibold">S&P 500 - Historical performance</h2>
           <Chart />
           <br></br>
         </Card>
