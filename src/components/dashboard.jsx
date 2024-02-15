@@ -19,6 +19,7 @@ const Dashboard = ({
   }, [news]);
 
 
+
   return (
     <div className='h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8'>
       <div className='col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1'>

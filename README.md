@@ -7,6 +7,9 @@ StockSavvy is a web application designed to assit you with essential data about 
 
 
 ## Usage
+Link to deployed app: https://stock-savvy.netlify.app/
+<br>
+
 ![alt text](assets/images/stock-savvy-web.png)<br>
 
 The StockSavvy dashboard contains: <br>
