@@ -47,7 +47,7 @@ const Dashboard = ({
           <div>{exchange}</div>
         </Card>
       </div>
-      <div className='overflow-y-scroll bg-indigo-50 border-1 rounded-md row-span-2 xl:row-span-3'>
+      <div className='overflow-y-scroll bg-indigo-50 rounded-md row-span-2 xl:row-span-3'>
         <Card>
           <h2 className='text-xl font-semibold'> News </h2> 
             <NewsCard>

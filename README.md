@@ -2,8 +2,9 @@
 
 ## Description
 StockSavvy is a web application designed to assit you with essential data about the stock market. Stock Savvy provides you with the tools to track and analyse key stock information. 
-* Monitor metrics such as top gainers and losers during the day, previous 30 day preformance of stocks and other key financial merics.
-* Keep up with financial and business news
+* Monitor key metrics and previous 30 day preformance of stocks and other key financial information.
+* Monitor top gaining and losing stocks for the day.
+* Keep up with financial and business news.
 
 
 ## Usage
@@ -16,10 +17,10 @@ The StockSavvy dashboard contains: <br>
  A carousel that displays the biggest gaining and losing stocks during the day. 
 <br>
 <br>
-A graph displays the last 30 days performance of the S&P 500
+A graph displays the last 30 days performance of a stock.
 <br>
 <br>
-The search function, allows the user to find stocks using keyuwords, the company name or through a list of suggested company tickers displayed on the drop down. This will display an overview of key financial metrics which allows the user to monitor and track the performance of stocks in real-time. As well as provide you with current related news. <br>
+The search function, allows the user to find stocks using keywords, the company name or through a list of suggested company tickers displayed on the drop down. This will display an overview of key financial metrics which allows the user to monitor and track the performance of stocks in real-time. As well as provide you with current related news. <br>
 ![alt text](assets/images/search.png)
 <br>
 
@@ -39,10 +40,6 @@ EdX Skills Bootcamp
 [Tailwind](https://tailwindcss.com/)<br>
 [Nivo](https://nivo.rocks/)<br>
 [ChartJS](https://www.chartjs.org/)<br>
-
-
-
-
 
 ## License
 This project is released under the MIT licence. Please see license file.
