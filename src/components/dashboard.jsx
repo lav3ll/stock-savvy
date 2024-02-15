@@ -9,8 +9,8 @@ import Chart from "./chart.jsx";
 // import StockChart from "./chart";
 
 
-const Dashboard = ({news,setNews}) => {
-   
+const Dashboard = ({news,setNews, fiftyDayAverage, stockName, marketCap, exchange}) => {
+
 
     useEffect(() => {
         console.log(news);
@@ -36,7 +36,14 @@ const Dashboard = ({news,setNews}) => {
             </Card>
         </div>
         <div>
-            <Card>Overview</Card>
+            <Card>Overview
+            <h2 className="text-3xl font-bold">
+                {stockName}
+            </h2>
+            <div>{fiftyDayAverage}</div>
+            <div>{marketCap}</div>
+            <div>{exchange}</div>
+            </Card>
         </div>
         <div className="row-span-2 xl:row-span-3">
             <Card> 
