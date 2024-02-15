@@ -27,7 +27,7 @@ const Chart = () => {
           const response = await axios.get('https://www.alphavantage.co/query', {
             params: {
               function: 'TIME_SERIES_MONTHLY_ADJUSTED',
-              symbol: 'TSLA', // NEED TO CHANGE THIS TO SEARCH RESULT SYMBOL FROM THE SEARCH BAR 
+              symbol: 'SPY', // in the future change this to a symbol from search input field
               apikey: '3JRNVJB2L0SVNOO1' // Alex's API key for Alpha Vantage
             }
           });
