@@ -1,3 +1,20 @@
+# Stock Savvy
+
+## Description
+StockSavvy is a web application designed to assit you with essential data about the stock market. Stock Savvy provides you with the tootls to track and analyse key stock information. 
+* Monitor metrics such as ...
+* Keep up with market trends with the search feature
+
+
+## Usage
+[insert screenshot of web app]
+
+
+## Credits
+
+
+## License
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

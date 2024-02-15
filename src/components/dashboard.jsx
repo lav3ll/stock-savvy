@@ -40,16 +40,18 @@ const Dashboard = ({news, setNews}) => {
         </div>
         <div className="overflow-y-scroll bg-indigo-50 border-1 rounded-md row-span-2 xl:row-span-3">
             <Card> 
-                <h2 className="font-semibold"> News </h2> 
+                <h2 className="text-xl font-semibold"> News </h2> 
                 <NewsCard>
                 {news.map((article, idx) => (
                     <div key={idx} className=" bg-slate-50 border border-indigo-200 rounded-md shadow-lg dark:bg-white-80 dark:border-indigo-200 m-2 transition-transform transform hover:bg-indigo-50">
-                    <div className=" bg-cover bg-no-repeat m-3 p-3">
+                    <div className=" bg-cover bg-no-repeat mr-2 p-3">
                         <a href={article.url} target="_blank">
                         <img className="rounded-lg m-1 w-full object-cover" src={article.image} alt={article.title} />
                         <h5 className="font-semibold text-left m-2">{article.title}</h5>
                         <p className="text-left text-xs m-2">{article.description}</p>
-                        <p className="text-left text-xs m-2"> Source: {article.source.name} <br></br>{new Date(article.publishedAt).toLocaleDateString()}</p>
+                        <p className="text-left text-xs m-2"> Source: {article.source.name} 
+                        <br></br>
+                        {new Date(article.publishedAt).toLocaleDateString()}</p>
                         </a>
                     </div>
                     </div>
