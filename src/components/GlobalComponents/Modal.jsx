@@ -1,7 +1,10 @@
 import React from "react";
 import BarChart from "../GlobalComponents/BarChart";
+import LineChart from "../GlobalComponents/LineChart";
+import stockSeriesData from "../data/stockSeriesTestData.json";
 
-const Modal = ({ isOpen, onClose, data, modalBtnTxt }) => {
+const Modal = ({ isOpen, onClose, data, modalBtnTxt, lineData }) => {
+  console.log(lineData);
   return (
     <>
       {/* Main modal */}
@@ -10,13 +13,13 @@ const Modal = ({ isOpen, onClose, data, modalBtnTxt }) => {
           id="default-modal"
           tabIndex="-1"
           aria-hidden="true"
-          className="fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
         >
-          <div className="relative w-full h-full max-w-screen-lg">
+          <div className="relative w-full max-w-screen-lg">
             {/* Modal content */}
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700 h-full overflow-y-auto">
+            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700 overflow-hidden">
               {/* Modal header */}
-              <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+              <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 bg-indigo-900 dark:bg-gray-800">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                   {data.Name}
                 </h3>
@@ -30,22 +33,42 @@ const Modal = ({ isOpen, onClose, data, modalBtnTxt }) => {
               </div>
               {/* Modal body */}
               <div className="p-4 md:p-5 space-y-4">
-                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  {data.Description}
-                </p>
-                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  {data.Address}
-                </p>
-                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  {data.Sector}
-                </p>
-                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  {data.Industry}
-                </p>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                  <div className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                    Description:
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {data.Description}
+                  </div>
+                  <div className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                    Address:
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {data.Address}
+                  </div>
+                  <div className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                    Sector:
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {data.Sector}
+                  </div>
+                  <div className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                    Industry:
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {data.Industry}
+                  </div>
+                  {/* Add more data fields as needed */}
+                </div>
               </div>
-              {/* BarChart container */}
-              <div className="flex justify-center">
-                <BarChart stockData={data} />
+              {/* Charts container */}
+              <div className="flex">
+                <div className="w-1/2">
+                  <BarChart stockData={data} />
+                </div>
+                <div className="w-1/2">
+                  <LineChart stockSeriesData={lineData} />
+                </div>
               </div>
               {/* Modal footer */}
               <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"></div>
