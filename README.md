@@ -1,8 +1,44 @@
-# React + Vite
+# Stock Savvy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+StockSavvy is a web application designed to assit you with essential data about the stock market. Stock Savvy provides you with the tools to track and analyse key stock information. 
+* Monitor metrics such as top gainers and losers during the day, previous 30 day preformance of stocks and other key financial merics.
+* Keep up with financial and business news
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
+[insert screenshot of web app]
+
+The StockSavvy dashboard contains: <br>
+ A carousel that displays the biggest gaining and losing stocks during the day. 
+<br>
+A graph displays the last 30 days performance of the S&P 500
+<br>
+The search function, allows the user to find stocks using keyuwords, the company name or through a list of suggested company tickers displayed on the drop down. This will display an overview of key financial metrics which allows the user to monitor and track the performance of stocks in real-time. As well as provide you with current related news. <br>
+[insert image]
+<br>
+
+## Credits
+### StockSavvy Team
+Lavell Francis, Thomas Gledhill, Alex Christakou and Patricia Garcia
+
+EdX Skills Bootcamp
+
+### APIs used
+[Yahoo Finance API ](https://rapidapi.com/manwilbahaa/api/yahoo-finance127/)<br>
+[Alpha Vantge API](https://www.alphavantage.co/)<br>
+[GNews API](https://gnews.io/)
+
+### Libraries used
+[React + Vite](https://vitejs.dev/)<br>
+[Tailwind](https://tailwindcss.com/)<br>
+[Nivo](https://nivo.rocks/)<br>
+[ChartJS](https://www.chartjs.org/)<br>
+
+
+
+
+
+## License
+This project is released under the MIT licence. Please see the LICENCE file.
+
