@@ -44,14 +44,16 @@ const Dashboard = ({
       <div className='row-span-2 xl:row-span-3'>
         <Card>
           <h3 className='font-semibold'> News </h3>
-          {news.map((article, idx) => (
-            <a href={article.url} target='_blank' key={idx}>
-              <img src={article.image} alt={article.title} />
-              <h5 className='font-semibold text-left'> {article.title} </h5>
-              <p className='text-left text-xs'> {article.description} </p>
-              <p className='text-left text-xs'> {article.publishedAt}</p>
-            </a>
-          ))}
+          <div className='row-span-2 xl:row-span-3 h-96 overflow-y-auto'>
+            {news.map((article, idx) => (
+              <a href={article.url} target='_blank' key={idx}>
+                <img src={article.image} alt={article.title} />
+                <h5 className='font-semibold text-left'> {article.title} </h5>
+                <p className='text-left text-xs'> {article.description} </p>
+                <p className='text-left text-xs'> {article.publishedAt}</p>
+              </a>
+            ))}
+          </div>
         </Card>
       </div>
     </div>
