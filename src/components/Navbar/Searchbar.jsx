@@ -26,7 +26,7 @@ export default function Searchbar({ setResults, news, setNews }) {
             return response.json()
         })
         .then(function (data) { 
-            console.log(data)
+            // console.log(data)
             let dataArr = data.quotes
             setResults(dataArr);
         })
@@ -35,7 +35,7 @@ export default function Searchbar({ setResults, news, setNews }) {
     function getNews(search) {
         axios.request(`https://gnews.io/api/v4/search?q=${search}&lang=en&in=title,description&apikey=3bcaf7196b03271776f870904803a308`)
         .then((response) => {
-            console.log(response.data.articles);
+            // console.log(response.data.articles);
             if (response && response.data.articles)
                 // setImgSrc(response.data.image);
                setNews(response.data.articles)
