@@ -63,7 +63,8 @@ export default function Searchbar({ setResults, news, setNews, display, setDispl
         <div className="input-wrapper flex items-center gap-3">
             <FaSearch/>
             <input placeholder="Search for a company..." className="p-1 text-black" 
-            value={input} 
+            value={input}
+            onClick={() => toggleDisplayOn()}
             onChange={(e) => handleChange(e.target.value)}/>
         </div>
     )
