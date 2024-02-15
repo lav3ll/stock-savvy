@@ -67,3 +67,9 @@ export default function Searchbar({ setResults, news, setNews }) {
         </div>
     )
 }
+
+//What i want
+// -The user to be able to click on results displayed
+// -use result.exhange to find ticker
+// -Use nasdaq ticker to  put in a fetch request URL to yahoo finance
+// -The fetch request data returned (price, market cap, etc) gets put into the overview

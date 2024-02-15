@@ -7,65 +7,75 @@ import Chart from "./chart.jsx";
 import NewsCard from "./News/NewsCard.jsx";
 // import StockChart from "./chart";
 
+const Dashboard = ({
+  news,
+  setNews,
+  fiftyDayAverage,
+  stockName,
+  marketCap,
+  exchange,
+}) => {
+  useEffect(() => {
+  }, [news]);
 
 
 
-const Dashboard = ({news, setNews}) => {
-   
-
-    useEffect(() => {
-    }, [news]);
-    
-
-    return (
-    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8">
-        <div className="col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1">
-            <Card>
-                {/* <h2>Search for Stock Info</h2> */}
-            </Card>
-        </div>
-        {/* <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
+{/* Changes from pull */}
+  return (
+    <div className='h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8'>
+      <div className='col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1'>
+        <Card>
+          <h2>Search for Stock Info</h2>
+        </Card>
+      </div>
+      {/* <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
         </div> */}
-        <div className="md:col-span-2 row-span-4">
-            <Card>
-                <h2>Markets Today</h2>
-                <StocksCarousel />
-                <h2>IBM</h2>
-                <Chart />
-                <br></br>
-            </Card>
-        </div>
-        <div>
-            <Card>Overview</Card>
-        </div>
-        <div className="overflow-y-scroll bg-indigo-50 border-1 rounded-md row-span-2 xl:row-span-3">
-            <Card> 
-                <h2 className="text-xl font-semibold"> News </h2> 
-                <NewsCard>
-                {news.map((article, idx) => (
-                    <div key={idx} className=" bg-slate-50 border border-indigo-200 rounded-md shadow-lg dark:bg-white-80 dark:border-indigo-200 m-2 transition-transform transform hover:bg-indigo-50">
-                    <div className=" bg-cover bg-no-repeat mr-2 p-3">
-                        <a href={article.url} target="_blank">
-                        <img className="rounded-lg m-1 w-full object-cover" src={article.image} alt={article.title} />
-                        <h5 className="font-semibold text-left m-2">{article.title}</h5>
-                        <p className="text-left text-xs m-2">{article.description}</p>
-                        <p className="text-left text-xs m-2"> Source: {article.source.name} 
-                        <br></br>
-                        {new Date(article.publishedAt).toLocaleDateString()}</p>
-                        </a>
-                    </div>
-                    </div>
+      <div className='md:col-span-2 row-span-4'>
+        <Card>
+          <h2>Markets Today</h2>
+          <StocksCarousel />
+          <h2>IBM</h2>
+          <Chart />
+          <br></br>
+        </Card>
+      </div>
+      <div>
+        <Card>
+          Overview
+          <h2 className='text-3xl font-bold'>{stockName}</h2>
+          <div>{fiftyDayAverage}</div>
+          <div>{marketCap}</div>
+          <div>{exchange}</div>
+        </Card>
+      </div>
+      <div className='overflow-y-scroll bg-indigo-50 border-1 rounded-md row-span-2 xl:row-span-3'>
+        <Card>
+          <h2 className='text-xl font-semibold'> News </h2> 
+            <NewsCard>
+              {news.map((article, idx) => (
+                <div key={idx} className= 'bg-slate-50 border border-indigo-200 rounded-md shadow-lg dark:bg-white-80 dark:border-indigo-200 m-2 transition-transform transform hover:bg-indigo-50'>
+                <div className=" bg-cover bg-no-repeat mr-2 p-3">
+                  <a href={article.url} target="_blank">
+
+                    <img className="rounded-lg m-1 w-full object-cover" src={article.image} alt={article.title} />
+                    <h5 className="font-semibold text-left m-2">{article.title}</h5>
+                    <p className="text-left text-xs m-2">{article.description}</p>
+                    <p className="text-left text-xs m-2"> Source: {article.source.name} 
+                    <br></br>
+                    {new Date(article.publishedAt).toLocaleDateString()}</p>
+                        
+                  </a>
+                </div>
+                </div>
                 ))}
-                </NewsCard>
-            </Card>
-        </div>
+            </NewsCard>
+        </Card>
+      </div>
     </div>
   );
 };
 
-
 export default Dashboard;
-
 
 // const Dashboard = () => {
 //   return (
@@ -91,7 +101,6 @@ export default Dashboard;
 //   );
 // };
 
-
 // const Dashboard = () => {
 //     return (
 //     <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-DMSans bg-indigo-100 text-gray-800">
@@ -111,9 +120,7 @@ export default Dashboard;
 //     <div className ="row-span-2 xl:row-span-3">
 //         <Card>Details</Card>
 //     </div>
-    
-    
-    
+
 //     </div>
 //     )}
 // // Extracting the most actively traded stocks from the imported JSON data
@@ -141,3 +148,47 @@ export default Dashboard;
 //   );
 // };
 
+
+//  patricia previous changes cards styling and overflow
+    // return (
+    // <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-8">
+    //     <div className="col-span-1 row-span 1md:col-span-1 xl:col-span-3 row-span-1">
+    //         <Card>
+    //             {/* <h2>Search for Stock Info</h2> */}
+    //         </Card>
+    //     </div>
+    //     {/* <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
+    //     </div> */}
+    //     <div className="md:col-span-2 row-span-4">
+    //         <Card>
+    //             <h2>Markets Today</h2>
+    //             <StocksCarousel />
+    //             <h2>IBM</h2>
+    //             <Chart />
+    //             <br></br>
+    //         </Card>
+    //     </div>
+    //     <div>
+    //         <Card>Overview</Card>
+    //     </div>
+    //     <div className="overflow-y-scroll bg-indigo-50 border-1 rounded-md row-span-2 xl:row-span-3">
+    //         <Card> 
+    //             <h2 className="text-xl font-semibold"> News </h2> 
+    //             <NewsCard>
+    //             {news.map((article, idx) => (
+    //                 <div key={idx} className=" bg-slate-50 border border-indigo-200 rounded-md shadow-lg dark:bg-white-80 dark:border-indigo-200 m-2 transition-transform transform hover:bg-indigo-50">
+    //                 <div className=" bg-cover bg-no-repeat mr-2 p-3">
+    //                     <a href={article.url} target="_blank">
+    //                     <img className="rounded-lg m-1 w-full object-cover" src={article.image} alt={article.title} />
+    //                     <h5 className="font-semibold text-left m-2">{article.title}</h5>
+    //                     <p className="text-left text-xs m-2">{article.description}</p>
+    //                     <p className="text-left text-xs m-2"> Source: {article.source.name} 
+    //                     <br></br>
+    //                     {new Date(article.publishedAt).toLocaleDateString()}</p>
+    //                     </a>
+    //                 </div>
+    //                 </div>
+    //             ))}
+    //             </NewsCard>
+    //         </Card>
+    //     </div>
