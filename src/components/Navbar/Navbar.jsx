@@ -7,6 +7,13 @@ export default function Navbar({news, setNews, setFiftyDayAverage, setStockName,
 
 const [results, setResults] = useState([])
 
+
+const [display, setDisplay] = useState(true)
+const togglDisplay = () => {
+    setDisplay(!display)
+}
+
+
     return (
         <nav className="my-nav bg-indigo-900 text-white flex justify-between items-center gap-8 p-4">
             <div className="flex gap-5 my-logo">

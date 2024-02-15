@@ -4,10 +4,16 @@ import NewsItems from "../News/NewsItems";
 
 export default function SearchResultsList({ results, setFiftyDayAverage, setStockName, setExchange, setMarketCap }) {
 
+    const [display, setDisplay] = useState(true)
+    const toggleDisplay = () => {
+    setDisplay(!display)
+    }
+
 
     function appendOverview(name) {
         getYahooPrice(name.symbol)
         setStockName(name.longname);
+        toggleDisplay();
     }
 
     const yahooOptions = {
@@ -42,12 +48,14 @@ export default function SearchResultsList({ results, setFiftyDayAverage, setStoc
 
 
     return (
-        <div className="results-list bg-white text-black flex flex-col">
+        display && (
+            <div className="results-list bg-white text-black flex flex-col">
            {
             results.map((result, id) => {
             return <div key={id} onClick={() => appendOverview(result)} className="cursor-pointer search-item">{result.longname}</div>
            })  
            }
         </div>
+        )
     )
 }
