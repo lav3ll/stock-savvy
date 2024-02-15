@@ -8,9 +8,16 @@ import TopsHeadlines from './News/Topheadlines';
 import Chart from './chart.jsx';
 // import StockChart from "./chart";
 
-const Dashboard = ({ news, setNews }) => {
+const Dashboard = ({
+  news,
+  setNews,
+  fiftyDayAverage,
+  stockName,
+  marketCap,
+  exchange,
+}) => {
   useEffect(() => {
-    // console.log(news);
+    console.log(news);
   }, [news]);
 
   return (
@@ -34,19 +41,17 @@ const Dashboard = ({ news, setNews }) => {
       <div>
         <Card>Overview</Card>
       </div>
-      <div className='row-span-2 xl:row-span-3 h-96 overflow-hidden'>
+      <div className='row-span-2 xl:row-span-3'>
         <Card>
           <h3 className='font-semibold'> News </h3>
-          <div className='row-span-2 xl:row-span-3 h-96 overflow-y-auto'>
-            {news.map((article, idx) => (
-              <a href={article.url} target='_blank' key={idx}>
-                <img src={article.image} alt={article.title} />
-                <h5 className='font-semibold text-left'> {article.title} </h5>
-                <p className='text-left text-xs'> {article.description} </p>
-                <p className='text-left text-xs'> {article.publishedAt}</p>
-              </a>
-            ))}
-          </div>
+          {news.map((article, idx) => (
+            <a href={article.url} target='_blank' key={idx}>
+              <img src={article.image} alt={article.title} />
+              <h5 className='font-semibold text-left'> {article.title} </h5>
+              <p className='text-left text-xs'> {article.description} </p>
+              <p className='text-left text-xs'> {article.publishedAt}</p>
+            </a>
+          ))}
         </Card>
       </div>
     </div>
