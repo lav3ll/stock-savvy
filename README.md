@@ -11,10 +11,28 @@ StockSavvy is a web application designed to assit you with essential data about 
 
 
 ## Credits
+### StockSavvy Team
+Lavell Francis, Thomas Gledhill, Alex Christakou and Patricia Garcia
+
+EdX Skills Bootcamp
+
+### APIs used
+[Yahoo Finance API](url)<br>
+[Alphavantge API](url)<br>
+[GNews API](url)
+
+### Libraries used
+[React + Vite](url)<br>
+[Tailwind](url)<br>
+[Nivo](url)<br>
+[ChartJS](url)<br>
+
+
+
 
 
 ## License
-
+This project is released under the MIT licence. Please see the LICENCE file.
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
