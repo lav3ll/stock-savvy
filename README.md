@@ -2,13 +2,13 @@
 
 ## Description
 StockSavvy is a web application designed to assit you with essential data about the stock market. Stock Savvy provides you with the tootls to track and analyse key stock information. 
-* Monitor metrics such as ...
+* Monitor metrics such as [....]
 * Keep up with market trends with the search feature
 
 
 ## Usage
+Using the search function, find stocks using the stock symbol, company name or choose a stock from the drop down. This will display essential metrics which allows the user to monitor and track the performance of stocks in real-time. As well as provide you with current related news. 
 [insert screenshot of web app]
-
 
 ## Credits
 ### StockSavvy Team
@@ -22,10 +22,10 @@ EdX Skills Bootcamp
 [GNews API](url)
 
 ### Libraries used
-[React + Vite](url)<br>
-[Tailwind](url)<br>
-[Nivo](url)<br>
-[ChartJS](url)<br>
+[React + Vite](https://vitejs.dev/)<br>
+[Tailwind](https://tailwindcss.com/)<br>
+[Nivo](https://nivo.rocks/)<br>
+[ChartJS](https://www.chartjs.org/)<br>
 
 
 
@@ -33,11 +33,4 @@ EdX Skills Bootcamp
 
 ## License
 This project is released under the MIT licence. Please see the LICENCE file.
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
