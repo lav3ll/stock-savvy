@@ -31,7 +31,7 @@ const Dashboard = ({
         </div> */}
       <div className='md:col-span-2 row-span-4'>
         <Card>
-          <h2 className='text-xl font-semibold'>Markets Today</h2>
+          <h2 className='font-semibold'>Markets Today</h2>
           <StocksCarousel />
           <h2>IBM</h2>
           <Chart />
@@ -40,7 +40,7 @@ const Dashboard = ({
       </div>
       <div>
         <Card>
-          <h2 className='text-xl font-semibold'>Overview</h2>
+          <h2 className='font-semibold'>Overview</h2>
           <h2 className='text-3xl font-bold'>{stockName}</h2>
           <div>{fiftyDayAverage}</div>
           <div>{marketCap}</div>
@@ -49,7 +49,7 @@ const Dashboard = ({
       </div>
       <div className='overflow-y-scroll bg-indigo-50 rounded-md row-span-2 xl:row-span-3'>
         <Card>
-          <h2 className='text-xl font-semibold'> News </h2> 
+          <h2 className='font-semibold'> News </h2> 
             <NewsCard>
               {news.map((article, idx) => (
                 <div key={idx} className= 'bg-slate-50 border border-indigo-200 rounded-md shadow-lg dark:bg-white-80 dark:border-indigo-200 m-2 transition-transform transform hover:bg-indigo-50'>
