@@ -7,12 +7,9 @@ export default function Navbar({news, setNews, setFiftyDayAverage, setStockName,
 
 const [results, setResults] = useState([])
 
-
 const [display, setDisplay] = useState(true)
-const togglDisplay = () => {
-    setDisplay(!display)
-}
 
+    console.log(display)
 
     return (
         <nav className="my-nav bg-indigo-900 text-white flex justify-between items-center gap-8 p-4">
@@ -21,8 +18,8 @@ const togglDisplay = () => {
                 <a href="/" className="my-site text-3xl">Stock Savvy</a>
             </div>
             <div className="searchbar-container">
-                <Searchbar news={news} setNews={setNews} setResults={setResults}/>
-                <SearchResultsList results={results} setFiftyDayAverage={setFiftyDayAverage} setStockName={setStockName} setMarketCap={setMarketCap} setExchange={setExchange} />
+                <Searchbar news={news} setNews={setNews} setResults={setResults} display={display} setDisplay={setDisplay}/>
+                <SearchResultsList results={results} setFiftyDayAverage={setFiftyDayAverage} setStockName={setStockName} setMarketCap={setMarketCap} setExchange={setExchange} display={display} setDisplay={setDisplay} />
             </div>
             <ul className="flex gap-8">
                 <li><a href="/">Home</a></li>

@@ -3,7 +3,7 @@ import {FaSearch} from "react-icons/fa"
 import "./Searchbar.css"
 import axios from "axios";
 
-export default function Searchbar({ setResults, news, setNews }) {
+export default function Searchbar({ setResults, news, setNews, display, setDisplay }) {
 
     const [input, setInput] = useState("");
     
@@ -55,11 +55,16 @@ export default function Searchbar({ setResults, news, setNews }) {
         }
     }
 
+    function toggleDisplayOn() {
+        setDisplay(true)
+    }
+
     return (
         <div className="input-wrapper flex items-center gap-3">
             <FaSearch/>
             <input placeholder="Search for a company..." className="p-1 text-black" 
             value={input} 
+            onClick={() => toggleDisplayOn()}
             onChange={(e) => handleChange(e.target.value)}/>
         </div>
     )

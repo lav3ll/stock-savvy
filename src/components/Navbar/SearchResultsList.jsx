@@ -2,18 +2,16 @@ import React, { useState} from "react";
 import "./SearchResultsList.css"
 import NewsItems from "../News/NewsItems";
 
-export default function SearchResultsList({ results, setFiftyDayAverage, setStockName, setExchange, setMarketCap }) {
+export default function SearchResultsList({ results, setFiftyDayAverage, setStockName, setExchange, setMarketCap, display, setDisplay}) {
 
-    const [display, setDisplay] = useState(true)
-    const toggleDisplay = () => {
-    setDisplay(!display)
-    }
-
+    const toggleDisplayOff = () => {
+        setDisplay(false)
+        }
 
     function appendOverview(name) {
         getYahooPrice(name.symbol)
         setStockName(name.longname);
-        toggleDisplay();
+        toggleDisplayOff();
     }
 
     const yahooOptions = {
@@ -46,16 +44,19 @@ export default function SearchResultsList({ results, setFiftyDayAverage, setStoc
         })
     };
 
+    console.log(display)
 
     return (
-        display && (
-            <div className="results-list bg-white text-black flex flex-col">
-           {
-            results.map((result, id) => {
+        <>
+        {display && (
+        <div className="results-list bg-white text-black flex flex-col">
+        {
+        results.map((result, id) => {
             return <div key={id} onClick={() => appendOverview(result)} className="cursor-pointer search-item">{result.longname}</div>
-           })  
-           }
+        })  
+        }
         </div>
-        )
+)}
+        </>
     )
 }
