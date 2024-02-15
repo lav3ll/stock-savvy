@@ -3,7 +3,7 @@ import Searchbar from "./Searchbar"
 import SearchResultsList from "./SearchResultsList"
 import Modal from "./Modal"
 
-export default function Navbar({news, setNews, setFiftyDayAverage}) {
+export default function Navbar({news, setNews, setFiftyDayAverage, setStockName, setExchange, setMarketCap}) {
 
 const [results, setResults] = useState([])
 
@@ -15,7 +15,7 @@ const [results, setResults] = useState([])
             </div>
             <div className="searchbar-container">
                 <Searchbar news={news} setNews={setNews} setResults={setResults}/>
-                <SearchResultsList results={results} setFiftyDayAverage={setFiftyDayAverage} />
+                <SearchResultsList results={results} setFiftyDayAverage={setFiftyDayAverage} setStockName={setStockName} setMarketCap={setMarketCap} setExchange={setExchange} />
             </div>
             <ul className="flex gap-8">
                 <li><a href="/">Home</a></li>

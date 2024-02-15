@@ -2,11 +2,12 @@ import React, { useState} from "react";
 import "./SearchResultsList.css"
 import NewsItems from "../News/NewsItems";
 
-export default function SearchResultsList({ results, setFiftyDayAverage }) {
+export default function SearchResultsList({ results, setFiftyDayAverage, setStockName, setExchange, setMarketCap }) {
 
 
     function appendOverview(name) {
         getYahooPrice(name.symbol)
+        setStockName(name.longname);
     }
 
     const yahooOptions = {
@@ -33,7 +34,9 @@ export default function SearchResultsList({ results, setFiftyDayAverage }) {
         })
         .then(function (data) { 
             console.log(data)
-            setFiftyDayAverage(data.fiftyDayAverage.raw)
+            setFiftyDayAverage("Fifty Day Average: $" + data.fiftyDayAverage.raw)
+            setMarketCap("Market Cap: $" + data.marketCap.fmt)
+            setExchange("Exchange: " + data.exchange)
         })
     };
 
