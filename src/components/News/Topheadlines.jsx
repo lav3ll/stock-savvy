@@ -2,12 +2,11 @@ import axios from "axios";
 import { useState, useEffect} from 'react';
 
 function truncateDescription(description, wordsCount) {
+    
     const words = description.split(' ');
     const truncatedDescription = words.slice(0, wordsCount).join(' ');
     return truncatedDescription;
   }
-
-// MAIN REPO TO PUSH CHANGES
 
 function TopsHeadlines () {    
     const [topHeadlines, setTopHeadlines] = useState([]);
